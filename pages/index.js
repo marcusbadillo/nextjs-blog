@@ -1,20 +1,35 @@
-import Head from 'next/head'
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Blog</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;900&amp;display=swap"
+          rel="stylesheet"
+        />
       </Head>
-
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Learn to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+        <Image
+          src="/images/profile.jpg"
+          height={144}
+          width={144}
+          alt="Your Name"
+        />
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          First blog post{" "}
+          <Link href="/posts/first-post">
+            <a>here</a>
+          </Link>
         </p>
 
         <div className="grid">
@@ -54,21 +69,12 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by
           <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
 
       <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
         main {
           padding: 5rem 0;
           flex: 1;
@@ -95,11 +101,6 @@ export default function Home() {
           display: flex;
           justify-content: center;
           align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
         }
 
         .title a {
@@ -191,19 +192,51 @@ export default function Home() {
       `}</style>
 
       <style jsx global>{`
-        html,
+        *,
+        *::after,
+        *::before {
+          box-sizing: border-box;
+        }
+        html {
+          background-color: #fff;
+        }
         body {
-          padding: 0;
+          color: #111;
+          position: relative;
+          min-height: 100%;
+          height: 100%;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+          line-height: 1.65;
+          font-family: "Roboto", sans-serif;
+          font-size: 16px;
+          font-weight: 400;
+          min-width: 320px;
+          direction: ltr;
+          font-feature-settings: "kern";
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-scroll-behavior: smooth;
+          -moz-scroll-behavior: smooth;
+          -ms-scroll-behavior: smooth;
+          scroll-behavior: smooth;
         }
 
-        * {
-          box-sizing: border-box;
+        a {
+          color: #ccc;
+          text-decoration: none;
+        }
+
+        .container {
+          border: 2rem solid #111;
+          min-height: 100vh;
+          padding: 0 0.5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
         }
       `}</style>
     </div>
-  )
+  );
 }
